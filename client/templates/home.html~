@@ -1,0 +1,23 @@
+<template name="home">
+  <div class="page home">
+    {{>nav title='Local Market' black=true}}
+    <div class="content-scrollable">
+      <div class="bg-image home">
+        <h1 class="title-home">
+          Feedback App
+        </h1>        
+      </div>
+
+	<ul>
+      {{#each employees}}
+        {{> employee}}
+      {{/each}}
+    </ul>
+
+</div>
+  </div>
+</template>
+
+<template name="employee">
+<li><a>{{name}} - {{objectId}}</a></li>
+</template>

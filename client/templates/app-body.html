@@ -1,0 +1,42 @@
+<template name="appBody">
+  <div class="wrapper-welcome">
+    <div class="title-welcome">Feedback App</div>
+    <div class="description-welcome">
+	welcome to feedback app.
+    </div>
+    
+    <div class="description-welcome">
+    The app is designed to run on a physical device, where it uses the hardware's native camera and GPS support.
+    </div>
+
+    <div class="description-welcome">
+    You can also run it in a simulator, or in a desktop browser as a convenience (what you're looking at right now).
+    </div>
+
+    <div class="description-welcome">
+    This app includes a simple administrative backend that you can use to set welcome text on the app's home screen. Visit <a href="{{pathFor 'admin'}}">/admin</a> to log into the backend. The first authenticated user is allowed access.
+    </div>
+  </div>
+
+  <div id="container" class="{{menuOpen}} {{overlayOpen}}">
+    <section id="menu" class="overthrow">
+      <a href="{{pathFor 'home'}}" class="{{activePage 'home'}}">
+        <span class="wrapper-menu-item">
+          <span class="icon-home"></span>
+          <span class="title-menu">Home</span>
+        </span>
+      </a>
+     
+    </section>
+     
+
+    {{> overlay}}
+
+    <div class="content-overlay"></div>
+
+    <div id="content-container">
+      {{> yield}}
+    </div>
+
+  </div>
+</template>
