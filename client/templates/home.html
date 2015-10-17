@@ -1,24 +1,19 @@
 <template name="home">
   <div class="page home">
-    {{>nav title='Local Market' black=true}}
+    {{>nav title='Home' black=true}}
+
     <div class="content-scrollable">
-      <div class="bg-image home">
-        <h1 class="title-home">
-          Feedback App
-        </h1>        
-      </div>
 
-<h3>Employee Listing</h3>
-	<ul>
-      {{#each employees}}
-        {{> employee}}
-      {{/each}}
-    </ul>
-
-</div>
+      <h3>Employee Listing</h3>
+  	   <ul>
+        {{#each employees}}
+          {{> employee}}
+        {{/each}}
+        </ul>
   </div>
+</div>
 </template>
 
 <template name="employee">
-<li><a>{{name}} - {{objectId}}</a></li>
+<li><img src="{{picture.url}}" width="75" height="75"/><a href="/employeeInfo/{{objectId}}/{{repID}}">{{name}}</a></li>
 </template>

@@ -1,0 +1,29 @@
+<template name="employeeInfo">
+  <div class="page employeeDiv">
+    {{>nav title='Home' black=true}}
+    <div id="empObjId" style="display:none">{{_objectId}}</div>
+    <div id="empId" style="display:none">{{_repID}}</div>
+
+    <div>
+      <img src="{{employee.picture.url}}" width="150" height="150"/>
+      <span style="font-weight: bold">{{employee.name}}</span>
+      <table class="table">
+        <tr>
+          <th>Customer ID</th>
+          <th>Question1</th>
+          <th>Question2</th>
+        </tr>
+        {{#each ratings}}
+            {{> employeeRating}}
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</template>
+<template name="employeeRating">
+  <tr>
+    <td>{{customerID}}</td>
+    <td>{{answer1}}</td>
+    <td>{{answer2}}</td>
+  </tr>
+</template>

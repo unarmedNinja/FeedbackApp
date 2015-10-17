@@ -1,18 +1,18 @@
 var apiCall = function (apiUrl, callback) {
-  // try…catch allows you to handle errors 
+  // try…catch allows you to handle errors
   try {
-    var headers 
+    var headers
     var response = HTTP.call("get",apiUrl, { headers: {
 		"X-Parse-Application-Id" : "OfcmdQb86wghANsqh4T2FZ7yftzfjGhNnij8cjPO",
 		"X-Parse-REST-API-Key": "CB2KhjZJKCTi5WNW2ZfT7qC5mys48Xfnn2vriBGj",
 		"Content-Type": "application/json"
 	}
     });
-    // A successful API call returns no error 
+    // A successful API call returns no error
     // but the contents from the JSON response
     callback(null, response);
   } catch (error) {
-    // If the API responded with an error message and a payload 
+    // If the API responded with an error message and a payload
     if (error.response) {
       var errorCode = error;
       var errorMessage = JSON.stringify(error);
@@ -41,5 +41,23 @@ Meteor.methods({
 		var apiUrl = 'https://api.parse.com/1/classes/CustomerReps';
 	    var response = Meteor.wrapAsync(apiCall)(apiUrl);
 	    return response.content;
-	}
+	},
+  "getEmployeeInfo" :function(objectId){
+      this.unblock();
+      var apiUrl = "https://api.parse.com/1/classes/CustomerReps/" + objectId;
+      var response = Meteor.wrapAsync(apiCall)(apiUrl);
+      return response.content;
+  },
+  "getEmployeeRatings" :function(repId){
+      this.unblock();
+      var query = {'repID': repId };
+      query = JSON.stringify(query);
+      query = encodeURIComponent(query);
+      var apiUrl = "https://api.parse.com/1/classes/Rankings?where=" + query;
+
+      console.log(apiUrl);
+
+      var response = Meteor.wrapAsync(apiCall)(apiUrl);
+      return response.content;
+  }
 });
