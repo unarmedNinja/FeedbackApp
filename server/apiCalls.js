@@ -59,5 +59,13 @@ Meteor.methods({
 
       var response = Meteor.wrapAsync(apiCall)(apiUrl);
       return response.content;
+  },
+  "getAllRatings" :function(){
+      this.unblock();
+      var apiUrl = "https://api.parse.com/1/classes/Rankings";
+      console.log(apiUrl);
+
+      var response = Meteor.wrapAsync(apiCall)(apiUrl);
+      return response.content;
   }
 });

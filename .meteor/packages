@@ -22,3 +22,7 @@ iron:router
 twbs:bootstrap
 less
 http
+chart:chart
+momentjs:moment
+mrt:datatables
+underscore

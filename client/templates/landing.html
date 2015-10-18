@@ -1,0 +1,12 @@
+<template name="landing">
+  <div>
+    <canvas id="myBarChart" width="400" height="400"></canvas>
+  </div>
+  <div style="height:100px">
+    <ul>
+      {{#each allRatings}}
+        <li>{{createdAt}} {{customerID}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
